@@ -28,4 +28,4 @@ async def upload_image(file: UploadFile=File(...)):
     return FileResponse("matched_image.png", media_type='application/octet-stream',filename="matched_image.png")
 
 if __name__ == "__app__":
-    uvicorn.run(app, debug=True, port=process.env.PORT)
+    uvicorn.run(app, debug=True, port=8000)
