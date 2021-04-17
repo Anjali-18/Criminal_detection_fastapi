@@ -28,14 +28,14 @@ async def upload_image(file: UploadFile=File(...)):
     return FileResponse("matched_image.png", media_type='application/octet-stream',filename="matched_image.png")
 
 
-@cfd.post("/improtest")
-async def upload_image(file: File):
-    contents = await file.read()
-    nparr = np.fromstring(contents, np.uint8)
-    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-    matched_image = frc.classify_face(img)
-    output = Response(content=matched_image, media_type="image/png")
-    return output
+# @cfd.post("/improtest")
+# async def upload_image(file: File):
+#     contents = await file.read()
+#     nparr = np.fromstring(contents, np.uint8)
+#     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+#     matched_image = frc.classify_face(img)
+#     output = Response(content=matched_image, media_type="image/png")
+#     return output
 
 if __name__ == "__app__":
     uvicorn.run(app, debug=True, port=8000)
