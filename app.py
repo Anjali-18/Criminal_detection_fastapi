@@ -8,13 +8,13 @@ from starlette.responses import FileResponse
 
 cfd = FastAPI()
 
-@cfd.get("/")
-def home():
-    return "Welcome to criminal face detection API"
+# @cfd.get("/")
+# def home():
+#     return "Welcome to criminal face detection API"
 
-@cfd.get("/impro")
-def impro():
-    return ''
+# @cfd.get("/impro")
+# def impro():
+#     return ''
 
 @cfd.post("/impro")
 async def upload_image(file: UploadFile=File(...)):
